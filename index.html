@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather • Ghulam Mustafa Siddiqui</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar container">
+      <div class="brand">
+        <div class="logo">Weather<span class="dot">.</span></div>
+        <div class="sub">interactive • responsive • pro</div>
+      </div>
+
+      <div class="controls">
+        <div class="unit-toggle" role="radiogroup" aria-label="Units">
+          <button class="unit active" data-unit="metric">°C</button>
+          <button class="unit" data-unit="imperial">°F</button>
+        </div>
+        <button id="loc-btn" class="btn soft" title="Use my location">My Location</button>
+      </div>
+    </header>
+
+    <section class="search container">
+      <input id="city-input" type="search" placeholder="Search city — e.g. Karachi" aria-label="Search city">
+      <button id="search-btn" class="btn">Search</button>
+    </section>
+
+    <section id="hero" class="hero container" aria-live="polite">
+      <!-- Left: Current -->
+      <div class="card current" id="current-card">
+        <div class="topline">
+          <div>
+            <h2 id="place">—</h2>
+            <p id="local-time" class="muted">—</p>
+          </div>
+          <div class="main-temp">
+            <img id="weather-icon" src="" alt="" />
+            <div>
+              <div id="temp" class="temp">--°</div>
+              <div id="desc" class="muted">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid stats">
+          <div class="stat">
+            <div class="label">Feels</div>
+            <div id="feels">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Humidity</div>
+            <div id="humidity">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Wind</div>
+            <div id="wind">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Pressure</div>
+            <div id="pressure">—</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a id="contact-wa" class="btn outline" href="#" target="_blank" rel="noopener">Contact via WhatsApp</a>
+          <a id="contact-mail" class="btn ghost" href="#" target="_blank" rel="noopener">Email</a>
+        </div>
+
+        <div id="msg" class="msg muted">Search a city or use "My Location".</div>
+      </div>
+
+      <!-- Right: Forecast -->
+      <aside class="card forecast-card" id="forecast-card">
+        <h3>5-Day Forecast</h3>
+        <div id="forecast" class="forecast-track" aria-hidden="true">
+          <!-- forecast items injected here -->
+        </div>
+      </aside>
+    </section>
+
+    <footer class="container footer">
+      <div>© <span id="year"></span> Ghulam Mustafa Siddiqui — Built with OpenWeatherMap</div>
+      <small class="muted">Replace API key in <code>script.js</code>. Icons from OpenWeatherMap.</small>
+    </footer>
+
+    <!-- background decorations (weather-driven) -->
+    <div id="bg-container" class="bg"></div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* style.css - professional responsive single-page weather app */
+:root{
+  --bg-1:#eaf6ff; --bg-2:#f7fbff; --card:#ffffff; --muted:#6b7280;
+  --accent:#0066ff; --accent-2:#00b894; --shadow: 0 12px 36px rgba(10,20,40,0.08);
+  --radius:14px; --container:1100px; --glass: rgba(255,255,255,0.7);
+  --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--font);-webkit-font-smoothing:antialiased}
+body{background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#071027}
+
+/* layout container */
+.container{width:90%;max-width:var(--container);margin:0 auto;padding:14px}
+
+/* topbar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.brand .logo{font-weight:700;font-size:1.05rem}
+.brand .dot{color:var(--accent);margin-left:4px}
+.brand .sub{font-size:.86rem;color:var(--muted)}
+.controls{display:flex;gap:10px;align-items:center}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+.btn.soft{background:#fff;color:var(--accent);border:1px solid rgba(0,102,255,0.08)}
+.btn.outline{background:transparent;color:var(--accent);border:1px solid rgba(0,102,255,0.12)}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(15,23,42,0.04)}
+.unit-toggle{display:flex;background:rgba(2,6,23,0.04);padding:4px;border-radius:10px}
+.unit{border:0;background:transparent;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:600;color:var(--muted)}
+.unit.active{background:#fff;box-shadow:var(--shadow);color:#071027}
+
+/* search */
+.search{display:flex;gap:10px;padding:8px 14px}
+.search input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);outline:none}
+.search button{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:#fff}
+
+/* hero layout */
+.hero{display:flex;gap:20px;align-items:flex-start;padding:22px 0}
+.card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.current{flex:1;min-width:260px}
+.forecast-card{width:360px;max-width:38%}
+
+/* current content */
+.topline{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.topline h2{margin:0;font-size:1.25rem}
+.muted{color:var(--muted)}
+.main-temp{display:flex;align-items:center;gap:12px}
+.main-temp img{width:84px;height:84px;object-fit:contain}
+.temp{font-size:2.6rem;font-weight:700}
+.desc{text-transform:capitalize;color:var(--muted)}
+
+.grid.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.stat .label{font-size:.85rem;color:var(--muted)}
+.stat{font-weight:600}
+
+/* actions and message */
+.actions{display:flex;gap:10px;margin-top:12px}
+.msg{margin-top:12px;background:linear-gradient(180deg,rgba(2,6,23,0.01),transparent);padding:10px;border-radius:10px}
+
+/* forecast track (slider-like) */
+.forecast-track{display:flex;gap:10px;overflow-x:auto;padding:8px 4px}
+.forecast-item{min-width:120px;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:10px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:var(--shadow);text-align:center}
+.forecast-item img{width:56px;height:56px}
+.forecast-day{font-weight:700}
+.forecast-temp{font-weight:700}
+
+/* background decorations */
+.bg{position:fixed;inset:0;pointer-events:none;z-index:-1;transition:background 0.6s ease}
+
+/* small screens */
+@media (max-width:980px){
+  .hero{flex-direction:column}
+  .forecast-card{width:100%;max-width:100%}
+  .forecast-track{gap:8px}
+}
+@media (max-width:480px){
+  .main-temp img{width:64px;height:64px}
+  .temp{font-size:2rem}
+  .search input{font-size:.95rem}
+}
+
+/* subtle animations */
+.card{transform:translateY(0);transition:transform .35s ease, box-shadow .35s ease}
+.card:hover{transform:translateY(-6px)}
+.forecast-item{transition:transform .25s ease}
+.forecast-item:hover{transform:translateY(-6px)}
+
+/* helper: hidden */
+.hidden{display:none}
